@@ -1,14 +1,16 @@
 @import 'reset';
+@import 'todos';
 @import 'nav';
 
 body {
-  background-color: red;
+  font-family: 'Avenir', sans-serif;
 }
 
 .content {
   position: absolute;
   top: 60px;
   left: 0;
+  right: 0px;
   bottom: 0;
 }
 
