@@ -4,7 +4,7 @@ import { addTodo } from '../actions'
 
 
 
-export default class Todos extends React.Component {
+class Todos extends React.Component {
 
   getInitialState() {
     return {
@@ -37,17 +37,25 @@ export default class Todos extends React.Component {
           <span className="bubble"></span>
           <div className="todos__list">
             <TodoInputContainer />
-            <TodoItem />
-            <TodoItem />
-            <TodoItem />
-            <TodoItem />
-            <TodoItem />
+            {this.props.todos.map((todoText) => <TodoItem text={todoText}/>)}
           </div>
         </div>
       </div>
     );
   }
 }
+
+const mapStateToProps = (state) => {
+  return {
+    todos: state.todos,
+  }
+}
+
+const TodosContainer = connect(
+  mapStateToProps
+)(Todos)
+
+export default TodosContainer
 
 class TodoItem extends React.Component {
   render() {
@@ -57,7 +65,7 @@ class TodoItem extends React.Component {
           <img src="img/checkbox.png" />
         </div>
         <div className="todos__item__title">
-          Todo item
+          {this.props.text}
         </div>
       </div>
     );
@@ -65,32 +73,36 @@ class TodoItem extends React.Component {
 }
 
 class TodoInput extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  onAddClick() {
+    this.props.onAddClick(this.textInput.value)
+    this.textInput.value = "";
+  }
+
   render() {
     return (
       <div className="todos__input">
-        <div className="todos__input__add" onClick={this.props.onAddClick}>
+        <div className="todos__input__add" onClick={this.onAddClick.bind(this)}>
           <img src="img/add.png" />
         </div>
-        <input className="todos__input__text" type="text" placeholder="Add a new task" />
+        <input ref={input => { this.textInput = input; }} className="todos__input__text" type="text" placeholder="Add a new task" />
       </div>
     );
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-  }
-}
-
 const mapDispatchToProps = (dispatch) => {
   return {
-    onAddClick: () => {
-      dispatch(addTodo())
+    onAddClick: (value) => {
+      dispatch(addTodo(value))
     }
   }
 }
 
 const TodoInputContainer = connect(
-  mapStateToProps,
+  null,
   mapDispatchToProps
 )(TodoInput)

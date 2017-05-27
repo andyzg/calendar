@@ -13,17 +13,17 @@ import { combineReducers } from 'redux'
  * follows a different convention (such as function maps) if it makes sense for your
  * project.
  */
-function counter(state = 0, action) {
+function todos(state = [], action) {
   switch (action.type) {
   case 'ADD_TODO':
-    return state + 1
+    return state.concat([action.content])
   default:
     return state
   }
 }
 
 const app = combineReducers({
-  counter,
+  todos,
 })
 
 export default app
