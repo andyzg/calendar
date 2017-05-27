@@ -2,7 +2,7 @@
 @import 'nav';
 
 body {
-  background-color: red;
+  background-color: white;
 }
 
 .content {
@@ -19,4 +19,65 @@ body {
   bottom: 0px;
   width: 300px;
   background-color: #fafafa;
+
+  h1 {
+    display: flex;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    justify-content: center;
+    align-items: center;
+    font-family: "Avenir";
+    font-size: 16px;
+    line-height: 100%;
+    letter-spacing: 1.92px;
+    text-transform: uppercase;
+    color: #4D6280;
+    opacity: 1.00;
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .hours {
+    height: 100%;
+    overflow: hidden;
+    overflow-y: scroll;
+  }
+
+  .hour {
+    height: 100px;
+    opacity: 1.00;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+
+    .title {
+      display: inline-block;
+      float: left;
+      width: 36px;
+      height: 100%;
+      padding-left: 8px;
+      vertical-align: middle;
+      font-family: "Avenir";
+      font-size: 18px;
+      line-height: normal;
+      color: #8291A6;
+      opacity: 1.00;
+      border-right: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    .space {
+      position: relative;
+      z-index: 2;
+    }
+
+    .space:after {
+      content: "";
+      position: absolute;
+      top: 25%;
+      left: 44px;
+      right: 0;
+      border-top: 1px dashed rgba(0, 0, 0, 0.1);
+      z-index: -1;
+    }
+  }
 }
