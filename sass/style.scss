@@ -4,6 +4,7 @@
 
 body {
   font-family: 'Avenir', sans-serif;
+  overflow-y: hidden;
 }
 
 .content {
@@ -24,62 +25,75 @@ body {
 
   h1 {
     display: flex;
-    padding-top: 8px;
-    padding-bottom: 8px;
-    justify-content: center;
+    padding: 16px 0;
     align-items: center;
-    font-family: "Avenir";
-    font-size: 16px;
-    line-height: 100%;
-    letter-spacing: 1.92px;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 2px;
     text-transform: uppercase;
     color: #4D6280;
-    opacity: 1.00;
     border-right: 1px solid rgba(0, 0, 0, 0.1);
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   }
 
   .hours {
     height: 100%;
+    position: relative;
     overflow: hidden;
     overflow-y: scroll;
   }
 
   .hour {
-    height: 100px;
+    height: 80px;
     opacity: 1.00;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     border-right: 1px solid rgba(0, 0, 0, 0.1);
+    position: relative;
     box-sizing: border-box;
 
     .title {
-      display: inline-block;
-      float: left;
+      display: flex;
+      align-items: center;
       width: 36px;
       height: 100%;
       padding-left: 8px;
       vertical-align: middle;
-      font-family: "Avenir";
-      font-size: 18px;
-      line-height: normal;
       color: #8291A6;
-      opacity: 1.00;
       border-right: 1px solid rgba(0, 0, 0, 0.1);
+      line-height: 1.5;
     }
 
-    .space {
-      position: relative;
-      z-index: 2;
-    }
-
-    .space:after {
-      content: "";
-      position: absolute;
-      top: 25%;
-      left: 44px;
+    .hour-line {
+      border: 1px dashed #e5e5e5;
+      left: 45px;
       right: 0;
-      border-top: 1px dashed rgba(0, 0, 0, 0.1);
-      z-index: -1;
+      top: 50%;
+      position: absolute;
+    }
+  }
+
+  .events {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 45px;
+    bottom: 0;
+
+    .events__container {
+      position: relative;
+      width: 100%;
+      height: 1920px;
+
+      .event {
+        padding: 12px 8px;
+        position: absolute;
+        left: 0;
+        right: 0;
+
+        background-color: #6AA8FF;
+        color: #fff;
+      }
     }
   }
 }
