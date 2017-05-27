@@ -1,4 +1,8 @@
 import React from 'react';
+import { connect } from 'react-redux'
+import { addTodo } from '../actions'
+
+
 
 export default class Todos extends React.Component {
 
@@ -32,7 +36,7 @@ export default class Todos extends React.Component {
           <span className="todos__section__header">Inbox</span>
           <span className="bubble"></span>
           <div className="todos__list">
-            <TodoInput />
+            <TodoInputContainer />
             <TodoItem />
             <TodoItem />
             <TodoItem />
@@ -64,7 +68,7 @@ class TodoInput extends React.Component {
   render() {
     return (
       <div className="todos__input">
-        <div className="todos__input__add">
+        <div className="todos__input__add" onClick={this.props.onAddClick}>
           <img src="img/add.png" />
         </div>
         <input className="todos__input__text" type="text" placeholder="Add a new task" />
@@ -72,3 +76,21 @@ class TodoInput extends React.Component {
     );
   }
 }
+
+const mapStateToProps = (state) => {
+  return {
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onAddClick: () => {
+      dispatch(addTodo())
+    }
+  }
+}
+
+const TodoInputContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(TodoInput)
