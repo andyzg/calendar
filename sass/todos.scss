@@ -1,0 +1,158 @@
+.todos {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  top: 0px;
+  left: 300px;
+  border-left: 1px solid #eee;
+  box-sizing: border-box;
+
+  padding: 30px 60px;
+
+  background-color: #fff;
+
+  .todos__day-row {
+
+    display: flex;
+    flex-direction: row;
+
+    .todos__day {
+      font-size: 24px;
+      font-weight: 900;
+      margin-right: 16px;
+      margin-top: 2px;
+    }
+
+    .todos__day-switcher {
+      display: flex;
+      align-items: center;
+      width: 24px;
+      height: 24px;
+
+      border: 1px solid #eee;
+      border-radius: 2px;
+      cursor: pointer;
+      transition: 0.1s border;
+
+      &:hover {
+        border: 1px solid #aaa;
+      }
+
+      img {
+        margin: 0 auto;
+        width: 8px;
+        height: 14px;
+      }
+    }
+  }
+
+  .todos__section {
+    margin-top: 24px;
+
+    .todos__section__header {
+      font-size: 20px;
+      color: #000;
+      font-weight: 700;
+      margin-right: 8px;
+    }
+
+    .late {
+      background-color: #FF6868;
+      color: #fff;
+      padding: 4px 8px;
+      border-radius: 2px;
+    }
+  }
+
+  .todos__list {
+    padding: 12px 0 32px 0;
+  }
+
+  .todos__item {
+    display: flex;
+    height: 36px;
+    margin-top: 12px;
+    align-items: center;
+
+    .todos__item__checkbox {
+      align-items: center;
+      display: flex;
+      height: 30px;
+      width: 30px;
+      margin-right: 12px;
+
+      border-radius: 50%;
+      border: 1px solid #ddd;
+      cursor: pointer;
+
+      transition: 0.1s border;
+
+      &:hover {
+        border: 1px solid #aaa;
+      }
+
+      img {
+        margin: 0 auto;
+        width: 12px;
+        height: 12px;
+      }
+    }
+
+    .todos__item__title {
+      font-weight: 500;
+    }
+  }
+
+  .todos__input {
+    display: flex;
+
+    .todos__input__add {
+      align-items: center;
+      display: flex;
+      height: 30px;
+      width: 30px;
+      margin-right: 12px;
+
+      border-radius: 50%;
+      border: 1px solid #ddd;
+      cursor: pointer;
+
+      transition: 0.1s border;
+
+      &:hover {
+        border: 1px solid #aaa;
+      }
+
+      img {
+        width: 11px;
+        height: 11px;
+        margin: 0 auto;
+      }
+    }
+
+    .todos__input__text {
+      flex-grow: 1;
+
+      border: 0;
+      border-bottom: 1px solid #ddd;
+      transition: 0.1s border-color;
+
+      font-family: 'Avenir', sans-serif;
+      font-size: 16px;
+
+      &:focus {
+        outline: none;
+        border-bottom: 1px solid #aaa;
+      }
+    }
+  }
+}
+
+.bubble {
+  width: 16px;
+  height: 16px;
+  background-color: #6AA8FF;
+  display: inline-block;
+  border-radius: 50%;
+  margin-left: 2px;
+}
