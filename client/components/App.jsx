@@ -6,8 +6,16 @@ import React from 'react';
 export default class App extends React.Component {
   render() {
     return (
-     <div style={{textAlign: 'center'}}>
-        <h1>World</h1>
+      <div>
+        <Nav />
       </div>);
+  }
+}
+
+class Nav extends React.Component {
+  render() {
+    return (
+      <div className="nav"></div>
+    );
   }
 }
